@@ -1,6 +1,7 @@
 function solution(s) {
   let answer = 0;
   const sArr = [...s];
+
   for (let i = 0; i < s.length; i++) {
     const stack = [];
     let isValid = true;
@@ -12,12 +13,11 @@ function solution(s) {
           isValid = false;
           break;
         }
-        const lastBracket = stack.pop();
-
+        const stackBracket = stack.pop();
         if (
-          (lastBracket !== '(' && bracket === ')') ||
-          (lastBracket !== '{' && bracket === '}') ||
-          (lastBracket !== '[' && bracket === ']')
+          (stackBracket !== '(' && bracket === ')') ||
+          (stackBracket !== '{' && bracket === '}') ||
+          (stackBracket !== '[' && bracket === ']')
         ) {
           isValid = false;
           break;
